@@ -3,15 +3,18 @@ package com.udacity.gradle.builditbigger.backend;
 /**
  * The object model for the data we are sending through endpoints
  */
+
+import com.lemuel.lemubit.supplyjoke.Joke;
+
 public class MyBean {
+    String joke;
 
-    private String myData;
-
-    public String getData() {
-        return myData;
+    public void setJoke() {
+        joke = Joke.getJoke();
     }
 
-    public void setData(String data) {
-        myData = data;
+    public String geJoke() {
+        return joke;
     }
+
 }
