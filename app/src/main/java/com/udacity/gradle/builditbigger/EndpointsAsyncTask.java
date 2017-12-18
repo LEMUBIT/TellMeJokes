@@ -37,7 +37,7 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
             });
             myApiService = builder.build();
         }
-//todo:giving EOFexception
+
         try {
             return myApiService.sayJoke().execute().getJoke();
         } catch (IOException e) {
