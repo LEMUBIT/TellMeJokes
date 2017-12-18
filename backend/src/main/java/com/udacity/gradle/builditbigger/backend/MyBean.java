@@ -13,7 +13,7 @@ public class MyBean {
         joke = Joke.getJoke();
     }
 
-    public String geJoke() {
+    public String getJoke() {
         return joke;
     }
 

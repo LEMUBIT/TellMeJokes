@@ -42,15 +42,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
-        Intent intent = new Intent(this, jokeActivity.class);
-        Bundle mbundle = new Bundle();
-        //get joke and put in extras
-        mbundle.putString("joke", Joke.getJoke());
-        intent.putExtras(mbundle);
-        startActivity(intent);
-
-    }
 
 
 }
