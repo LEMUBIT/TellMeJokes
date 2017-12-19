@@ -1,6 +1,5 @@
 package com.lemuel.lemubit.jokedisplay;
 
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +14,7 @@ public class jokeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke_display);
         //get Joke from bundle
-        String joke = getIntent().getExtras().getString("joke");
+        String joke = getIntent().getExtras().getString(getString(R.string.joke));
         jokeTxt = (TextView) findViewById(R.id.jokeTxt);
         jokeTxt.setText(joke);
     }

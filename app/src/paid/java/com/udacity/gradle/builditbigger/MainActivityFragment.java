@@ -44,7 +44,7 @@ public class MainActivityFragment extends Fragment implements OnJokeRecieved {
         jokeProgressBar.setVisibility(View.INVISIBLE);
         Intent intent = new Intent(getActivity(), jokeActivity.class);
         Bundle mbundle = new Bundle();
-        mbundle.putString("joke", joke);
+        mbundle.putString(getString(R.string.joke), joke);
         intent.putExtras(mbundle);
         startActivity(intent);
     }
