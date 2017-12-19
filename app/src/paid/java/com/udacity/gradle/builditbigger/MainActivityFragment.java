@@ -12,9 +12,7 @@ import android.widget.ProgressBar;
 import com.lemuel.lemubit.jokedisplay.jokeActivity;
 
 
-/**
- * A placeholder fragment containing a simple view.
- */
+
 public class MainActivityFragment extends Fragment implements OnJokeRecieved {
 
     ProgressBar jokeProgressBar;
@@ -28,6 +26,8 @@ public class MainActivityFragment extends Fragment implements OnJokeRecieved {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         Button jokeBtn = (Button) root.findViewById(R.id.tellJoke);
         jokeProgressBar = (ProgressBar) root.findViewById(R.id.jokeProgressBar);
+
+        /*Start network request when button is clicked*/
         jokeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +38,7 @@ public class MainActivityFragment extends Fragment implements OnJokeRecieved {
         return root;
     }
 
+    /*Implement method from OnJokeReceived*/
     @Override
     public void Joke(String joke) {
         jokeProgressBar.setVisibility(View.INVISIBLE);

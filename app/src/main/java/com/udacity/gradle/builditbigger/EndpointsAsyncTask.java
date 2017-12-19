@@ -1,8 +1,5 @@
 package com.udacity.gradle.builditbigger;
 
-/**
- * Created by charl on 18/12/2017.
- */
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -23,28 +20,31 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
     public EndpointsAsyncTask(OnJokeRecieved downloadListener) {
         this.listener = downloadListener;
     }
+
     @Override
     protected String doInBackground(Pair<Context, String>[] pairs) {
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
-                 .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-                @Override
-                public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-                    abstractGoogleClientRequest.setDisableGZipContent(true);
-                }
-            });
+                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")//URL for emulator
+                    .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+                        @Override
+                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                            abstractGoogleClientRequest.setDisableGZipContent(true);
+                        }
+                    });
             myApiService = builder.build();
         }
 
         try {
+            //gets joke from backend
             return myApiService.sayJoke().execute().getJoke();
         } catch (IOException e) {
             return e.getMessage();
         }
     }
 
+  /*Sends joke through listener*/
     @Override
     protected void onPostExecute(String joke) {
         super.onPostExecute(joke);
