@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Joke Display</string>
+    <string name="exit">Exit</string>
 </resources>
